@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+  # Overwrite clearnce signup
+  resources :users, controller: 'users', only: Clearance.configuration.user_actions
+
+  get 'listings' => 'listings#index'
+  get 'listings/new' => 'listings#new'
+  post 'listings' => 'listings#create'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
